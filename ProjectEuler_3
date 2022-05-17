@@ -1,0 +1,32 @@
+//Простые делители числа 13195 равны 5, 7, 13 и 29.
+//Каков наибольший простой множитель данного числа?
+
+function largestPrimeFactor(number) {
+  let i,j,k,big = 0;
+  let arr=[];
+  let n=0;
+  let res=0;
+  let sum=0;
+  if (number< 2) {return 1};
+  for(i=2 ; i<= number; i++) {
+    sum = 0;
+    for (k=1; k< i; k++) {
+      if(i%k==0) {
+        sum++;
+        big=i;
+      }
+    }
+      if(sum<2) {
+        arr[n]= big;
+        n++;
+      }
+  }
+  for (j=0; j<arr.length; j++) {
+    if(number%arr[j]==0) {
+       res=arr[j]; 
+    }
+  }
+  //console.log(sum);
+  return res;
+}
+largestPrimeFactor(13195);
